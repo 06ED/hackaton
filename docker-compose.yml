@@ -1,0 +1,13 @@
+version: "3.8"
+name: "dev-compose"
+
+services:
+  backend-database:
+    container_name: "backend-database"
+    image: postgres:14
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "dev"
+      POSTGRES_PASSWORD: "hackers"
+    restart: always
