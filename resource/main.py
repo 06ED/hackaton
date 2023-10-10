@@ -12,5 +12,3 @@ def register(api: Api):
     for class_info in classes:
         name, cls = class_info
         api.add_resource(cls, f"/api/{cls.address}/")
-
-
