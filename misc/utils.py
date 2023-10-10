@@ -1,5 +1,6 @@
 import email.message as message
 import smtplib
+from email.mime.image import MIMEImage
 
 from flask import render_template
 from config import settings

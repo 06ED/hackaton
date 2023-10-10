@@ -5,10 +5,8 @@ from resource.resource import Resource
 class Booking(Resource):
     address = 'services/booking'
 
-    def get(self):
-        pass
-
-    def post(self):
+    @staticmethod
+    def post():
         name = request.json['name']
         surname = request.json['surname']
         email = request.json['email']

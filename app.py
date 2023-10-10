@@ -1,3 +1,4 @@
+import generator
 from config import settings
 
 from flask import Flask
@@ -14,6 +15,7 @@ mailer = Mailer(app)
 
 
 def main():
+    generator.generate(db)
     register(api)
     app.run(debug=True)
 
