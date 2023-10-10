@@ -4,4 +4,6 @@ from .dairy import Dairy
 from .events import Events
 from .business import Business
 from .contacts import Contacts
-from .services import Services
+from .excursions import Excursions
+from .rent import Rent
+from .marriages import Marriages
