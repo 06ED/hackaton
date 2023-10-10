@@ -1,3 +1,4 @@
+import generator
 from config import settings
 import datetime as dt
 
@@ -6,14 +7,18 @@ from flask_restful import Api
 from db import Database
 from db.models.booking_house_model import BookingModel
 from db.models.services_model import ServicesModel
+from misc.utils import Mailer
+
 from resource import register
 
 app = Flask(__name__)
 api = Api(app)
 db = Database(settings.DATABASE_NAME)
+mailer = Mailer(app)
 
 
 def main():
+    generator.generate(db)
     register(api)
     rent1 = ServicesModel(type="Гостевой домик 1")
     rent2 = ServicesModel(type="Гостевой домик 2")
