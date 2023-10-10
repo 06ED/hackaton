@@ -1,4 +1,4 @@
-import settings
+from config import settings
 
 from flask import Flask
 from flask_restful import Api
