@@ -26,3 +26,16 @@ class Mailer:
                 end_date=end_date.strftime("%s/%s/%s %H:%M"),
             ))
             self._smtp_server.sendmail(settings.EMAIL, email, msg.as_string().encode("utf-8"))
+
+    def send_success_booking_excursion(self, email: str, name, surname, date, description):
+        with self._app.app_context():
+            msg = message.Message()
+            msg.add_header("Content-Type", "text/html")
+            msg.set_payload(render_template(
+                "success_booking_excursion.html",
+                name=name,
+                surname=surname,
+                date=date.strftime("%s/%s/%s"),
+                description=description,
+            ))
+            self._smtp_server.sendmail(settings.EMAIL, email, msg.as_string().encode("utf-8"))
