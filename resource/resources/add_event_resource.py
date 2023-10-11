@@ -11,6 +11,6 @@ class AddEventResource(Resource):
     def post(cls):
         name = request.json["name"]
         image = request.json["image"]
-        decscription = request.json["decscription"]
-        cls.DATABASE.session.add(AddEventModel(name=name, decscription=decscription, image=image))
+        description = request.json["description"]
+        cls.DATABASE.session.add(AddEventModel(name=name, description=description, image=image))
         cls.DATABASE.session.commit()

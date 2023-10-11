@@ -9,4 +9,4 @@ class AddEventModel(BaseModel):
 
     name = sql.Column(sql.String, unique=False, nullable=False)
     image = sql.Column(sql.String)
-    decscription = sql.Column(sql.String, unique=True, nullable=False)
+    description = sql.Column(sql.String, unique=True, nullable=False)
