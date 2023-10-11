@@ -1,4 +1,4 @@
-from flask import request, jsonify
+from flask import jsonify
 
 from db.models.contact_model import ContactModel
 from resource.resource import Resource
