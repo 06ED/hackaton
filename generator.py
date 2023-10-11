@@ -207,9 +207,4 @@ def generate(db: Database):
     for rent in strings.RENTS:
         db.session.add(RentModel(name=rent.name, description=rent.description, cost=rent.cost, img_url=rent.img_url))
 
-    db.session.add(ContactModel(
-        img_url="",
-        link=""
-    ))
-
     db.session.commit()
