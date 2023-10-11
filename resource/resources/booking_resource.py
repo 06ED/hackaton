@@ -1,3 +1,4 @@
+import random, string
 from flask import request, jsonify
 import datetime as dt
 from db.models.booking_model import BookingModel
@@ -44,5 +45,9 @@ class BookingResource(Resource):
             start_date=dt.datetime(start_date),
             end_date=dt.datetime(end_date),
             type=types
+        ))
+        cls.DATABASE.session.add(BookingModel(
+            booking_id=cls.DATABASE.query(BookingModel).filter(BookingModel.email == email).first().id,
+            uniq_num=''.join(random.choice(string.ascii_lowercase + '0123456789') for i in range(15))
         ))
         cls.DATABASE.session.commit()

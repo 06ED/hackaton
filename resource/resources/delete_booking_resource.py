@@ -8,8 +8,8 @@ class DeleteBookingResource(Resource):
     address = 'services/delete_booking'
 
     @classmethod
-    def post(cls):
-        uid = request.json["id"]
+    def get(cls):
+        uniq_num = request.json["uniq_num"]
 
-        cls.DATABASE.session.delete(BookingModel).filter(BookingModel.id == uid)
+        cls.DATABASE.session.delete(BookingModel).filter(BookingModel.uniq_num == uniq_num)
         cls.DATABASE.session.commit()
