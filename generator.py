@@ -1,5 +1,8 @@
+from config import strings
 from db import Database
+from db.models.contact_model import ContactModel
 from db.models.location_model import LocationModel
+from db.models.rent_model import RentModel
 from db.models.service_model import ServiceModel
 
 
@@ -200,5 +203,13 @@ def generate(db: Database):
     db.session.add(rent3)
     db.session.add(rent4)
     db.session.add(rent5)
+
+    for rent in strings.RENTS:
+        db.session.add(RentModel(name=rent.name, description=rent.description, cost=rent.cost, img_url=rent.img_url))
+
+    db.session.add(ContactModel(
+        img_url="",
+        link=""
+    ))
 
     db.session.commit()

@@ -4,7 +4,7 @@ from db.models.location_model import LocationModel
 from resource.resource import Resource
 
 
-class Dairy(Resource):
+class DairyResource(Resource):
     address = "dairy"
 
     @classmethod
