@@ -15,6 +15,7 @@ from resource import register
 db = Database(settings.DATABASE_NAME)
 app = Flask(__name__)
 api = Api(app)
+db = Database(settings.DATABASE_NAME)
 mailer = Mailer(app)
 
 
