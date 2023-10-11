@@ -13,7 +13,8 @@ class ContactsResource(Resource):
             {
                 "id": contact.id,
                 "link": contact.link,
-                "image": contact.img_url
+                "image": contact.img_url,
+                "name": contact.name
             }
             for contact in cls.DATABASE.session.query(ContactModel).all()
         ])

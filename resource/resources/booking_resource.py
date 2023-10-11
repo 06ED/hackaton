@@ -1,5 +1,7 @@
 from flask import request, jsonify
 import datetime as dt
+
+from app import mailer
 from db.models.booking_model import BookingModel
 from resource.resource import Resource
 
@@ -33,16 +35,17 @@ class BookingResource(Resource):
         name = request.json["name"]
         surname = request.json["surname"]
         email = request.json["email"]
-        start_date = request.json["end_date"]
-        end_date = request.json["start_date"]
+        start_date = dt.datetime(request.json["end_date"], hour=14)
+        end_date = dt.datetime(request.json["start_date"], hour=12)
         types = request.json["types"]
 
         cls.DATABASE.session.add(BookingModel(
             name=name,
             surname=surname,
             email=email,
-            start_date=dt.datetime(start_date),
-            end_date=dt.datetime(end_date),
+            start_date=start_date,
+            end_date=end_date,
             type=types
         ))
         cls.DATABASE.session.commit()
+        mailer.send_success_booking(email, name, surname, types, start_date, end_date)
