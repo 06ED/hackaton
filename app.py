@@ -20,7 +20,7 @@ def main():
     generator.generate(db)
     register(api)
 
-    renti = BookingModel(name='awdad', surname='wawadadd', email='dawdawdad', start_date=dt.date(2023, 10, 17), end_date=dt.date(2023, 10, 23), type=2, description="sss")
+    renti = BookingModel(name='awdad', surname='wawadadd', email='dawdawdad', start_date=dt.date(2023, 10, 17), end_date=dt.date(2023, 10, 23), type=2, description="1000")
     db.session.add(renti)
     db.session.commit()
     app.run()

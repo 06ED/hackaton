@@ -4,20 +4,18 @@
     <meta charset="UTF-8">
     <title>Поздравляем!</title>
     <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: Verdana, sans-serif;
         }
-        .wrapper {
-            height: 100vh;
-            width: 100%;
-            background-image: url('https://media.discordapp.net/attachments/1152922216137240637/1161536474689306654/XXXL.png');
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
+
         .black {
             height: 100%;
             width: 100%;
@@ -29,17 +27,20 @@
             flex-direction: column;
             gap: 1.5em;
         }
+
         .info {
-            padding: 125px 160px;
+            width: 40%;
+            height: 40%;
             border-radius: 10px;
             background: #F9C577;
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 25px 25px 0 #EAA4A4;;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), 25px 25px 0 #EAA4A4;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             gap: 10px;
         }
+
         .title {
             color: #E27C50;
             font-family: Inter, sans-serif;
@@ -48,6 +49,7 @@
             font-weight: 700;
             line-height: normal;
         }
+
         .text {
             color: #E27C50;
             font-family: Inter, sans-serif;
@@ -59,15 +61,16 @@
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="black">
-            <div class="info">
-                <h2 class="title">Поздравляем, {{ name }} {{ surname }}!</h2>
-                <div class="text">
-                    <span>Ваш домик и бла бла</span>
-                </div>
+<img src="https://media.discordapp.net/attachments/1152922216137240637/1161536474689306654/XXXL.png" alt="">
+<div class="wrapper" style="z-index: 1000000000; position: relative">
+    <div class="black">
+        <div class="info" style="position: absolute">
+            <h2 class="title">Поздравляем, {{ name }} {{ surname }}!</h2>
+            <div class="text">
+                <span>Ваш домик {{ home }} на время {{ start_date }} до {{ end_date }} успешно забронирован</span>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

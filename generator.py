@@ -207,4 +207,13 @@ def generate(db: Database):
     for rent in strings.RENTS:
         db.session.add(RentModel(name=rent.name, description=rent.description, cost=rent.cost, img_url=rent.img_url))
 
-    db.session.commit()
+    db.session.add(ContactModel(
+        img_url="fa-solid fa-phone:#000001",
+        link="https://t.me/MaviaProkoteva",
+        name="Telegram"
+    ))
+    db.session.add(ContactModel(
+        img_url="fa-brands fa-telegram:#fbca9c",
+        link="+7 (901) 865-87-55",
+        name="Телефон"
+    ))

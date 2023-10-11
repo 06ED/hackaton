@@ -8,3 +8,4 @@ class ContactModel(BaseModel):
 
     img_url = sql.Column(sql.String, unique=True, nullable=True)
     link = sql.Column(sql.String, unique=True, nullable=False)
+    name = sql.Column(sql.String, nullable=False)
