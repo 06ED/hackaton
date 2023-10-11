@@ -1,5 +1,6 @@
 from db import Database
 from db.models.location_model import LocationModel
+from db.models.service_model import ServiceModel
 
 
 def generate(db: Database):
@@ -188,5 +189,16 @@ def generate(db: Database):
         lat=56.864728,
         lon=53.232466
     ))
+
+    rent1 = ServiceModel(type="Гостевой домик 1")
+    rent2 = ServiceModel(type="Гостевой домик 2")
+    rent3 = ServiceModel(type="Гостевой домик 3 (ЭКО)")
+    rent4 = ServiceModel(type="Беседка на воде")
+    rent5 = ServiceModel(type="Беседка у пруда")
+    db.session.add(rent1)
+    db.session.add(rent2)
+    db.session.add(rent3)
+    db.session.add(rent4)
+    db.session.add(rent5)
 
     db.session.commit()

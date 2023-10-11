@@ -5,32 +5,24 @@ import datetime as dt
 from flask import Flask
 from flask_restful import Api
 from db import Database
-from db.models.booking_house_model import BookingModel
-from db.models.services_model import ServicesModel
+from db.models.booking_house_model import BookingHouseModel
+from db.models.booking_pavilion_model import BookingPavilionModel
+from db.models.service_model import ServiceModel
 from misc.utils import Mailer
 
 from resource import register
 
+db = Database(settings.DATABASE_NAME)
 app = Flask(__name__)
 api = Api(app)
-db = Database(settings.DATABASE_NAME)
 mailer = Mailer(app)
 
 
 def main():
     generator.generate(db)
     register(api)
-    rent1 = ServicesModel(type="Гостевой домик 1")
-    rent2 = ServicesModel(type="Гостевой домик 2")
-    rent3 = ServicesModel(type="Гостевой домик 3 (ЭКО)")
-    rent4 = ServicesModel(type="Беседка на воде")
-    rent5 = ServicesModel(type="Беседка у пруда")
-    db.session.add(rent1)
-    db.session.add(rent2)
-    db.session.add(rent3)
-    db.session.add(rent4)
-    db.session.add(rent5)
-    renti = BookingModel(name='awdad', surname='wawadadd', email='dawdawdad', start_date=dt.date(2023, 10, 17), end_date=dt.date(2023, 10, 23), type=2)
+
+    renti = BookingPavilionModel(name='awdad', surname='wawadadd', email='dawdawdad', start_date=dt.date(2023, 10, 17), end_date=dt.date(2023, 10, 23), type=2)
     db.session.add(renti)
     db.session.commit()
     app.run()

@@ -9,20 +9,26 @@ from resource.resource import Resource
 class BookingHouse(Resource):
     address = 'services/booking_house'
 
-    def get(self):
-        db = Database(settings.DATABASE_NAME)
-        res = [(i.start_date, i.end_date) for i in db.query(BookingHouseModel)]
+    @classmethod
+    def get(cls):
+        res = [(i.start_date, i.end_date) for i in cls.DATABASE.query(BookingHouseModel)]
         return jsonify(res)
 
-    def post(self):
+    @classmethod
+    def post(cls):
         name = request.json['name']
         surname = request.json['surname']
         email = request.json['email']
         start_date = request.json['end_date']
         end_date = request.json['start_date']
-        type = request.json['types']
-        db = Database(settings.DATABASE_NAME)
-        model = BookingHouseModel(name=name, surname=surname, email=email, start_date=dt.datetime(start_date),
-                             end_date=dt.datetime(end_date), type=type)
-        db.session.add(model)
-        db.session.commit()
+        types = request.json['types']
+
+        cls.DATABASE.session.add(BookingHouseModel(
+            name=name,
+            surname=surname,
+            email=email,
+            start_date=dt.datetime(start_date),
+            end_date=dt.datetime(end_date),
+            type=types
+        ))
+        cls.DATABASE.session.commit()
