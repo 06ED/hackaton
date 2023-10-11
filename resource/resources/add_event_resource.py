@@ -8,9 +8,9 @@ class AddEventResource(Resource):
     address = "add_event"
 
     @classmethod
-    def get(cls):
-        title = request.json["title"]
+    def post(cls):
+        name = request.json["name"]
         image = request.json["image"]
-        text = request.json["text"]
-        cls.DATABASE.session.add(AddEventModel(title=title, text=text, image=image))
+        decscription = request.json["decscription"]
+        cls.DATABASE.session.add(AddEventModel(name=name, decscription=decscription, image=image))
         cls.DATABASE.session.commit()
