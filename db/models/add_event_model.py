@@ -5,7 +5,7 @@ from db.main import BaseModel
 
 
 class AddEventModel(BaseModel):
-    __tablename__ = "bookings_ids"
+    __tablename__ = "added_events"
 
     name = sql.Column(sql.String, unique=False, nullable=False)
     image = sql.Column(sql.String)

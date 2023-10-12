@@ -1,15 +1,12 @@
 from typing import Final
 
-import sqlalchemy as sql
+from db.base import BaseModel
+from db.models import *
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, DeclarativeBase
+from sqlalchemy.orm import sessionmaker
 
 from misc import SingletonMeta
-
-
-class BaseModel(DeclarativeBase):
-    id = sql.Column(sql.Integer, autoincrement=True, unique=True, primary_key=True)
 
 
 class Database(metaclass=SingletonMeta):

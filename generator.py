@@ -242,3 +242,5 @@ def generate(db: Database):
         link="+7 (901) 865-87-55",
         name="Телефон"
     ))
+
+    db.session.commit()
