@@ -9,7 +9,7 @@ class RentResource(Resource):
 
     @classmethod
     def get(cls):
-        return jsonify([
+        dictionary = [
             {
                 "id": rent.id,
                 "name": rent.name,
@@ -17,7 +17,10 @@ class RentResource(Resource):
                 "cost": rent.cost,
                 "img_url": rent.img_url
             } for rent in cls.DATABASE.session.query(RentModel).all()
-        ])
+        ]
+        size = len(dictionary) // 3
+
+        return jsonify([dictionary[i:i + size] for i in range(0, len(dictionary), size)])
 
     @classmethod
     def post(cls):
@@ -30,4 +33,3 @@ class RentResource(Resource):
             "cost": rent.cost,
             "img_url": rent.img_url
         })
-

@@ -3,6 +3,7 @@ from sqlalchemy import orm
 
 from db.main import BaseModel
 
+
 class BookingExcursionModel(BaseModel):
     __tablename__ = "bookings_excursions"
 

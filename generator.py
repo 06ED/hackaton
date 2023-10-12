@@ -193,16 +193,41 @@ def generate(db: Database):
         lon=53.232466
     ))
 
-    rent1 = ServiceModel(type="Гостевой домик 1")
-    rent2 = ServiceModel(type="Гостевой домик 2")
-    rent3 = ServiceModel(type="Гостевой домик 3 (ЭКО)")
-    rent4 = ServiceModel(type="Беседка на воде")
-    rent5 = ServiceModel(type="Беседка у пруда")
-    db.session.add(rent1)
-    db.session.add(rent2)
-    db.session.add(rent3)
-    db.session.add(rent4)
-    db.session.add(rent5)
+    db.session.add(ServiceModel(
+        type="Гостевой домик 3 (ЭКО)",
+        description="ЭКО ДОМИК 3 Семейный, 4 спальных места\nТуалет, умывальник в домике",
+        img_url="https://sun9-70.userapi.com/impg/UcSf8kIONW1LqLa_N0mF8GiwO9A7"
+                "JJA7PT0Rag/y56Oqnz7pDY.jpg?size=807x605&quality=96&sign=ff745af4eb7"
+                "80113a9b902352c9fd769&c_uniq_tag=rLdGOLeQGWZBOZU2-_PLvnIXYQwKZZx1LhLRKa_HWh4&type=none"
+    ))
+    db.session.add(ServiceModel(
+        type="Гостевой домик 2",
+        description="ДОМИК 2 (Семейный, 4 спальных места)\nДОМИК 2 (Семейный, 4 спальных места)",
+        img_url="https://sun9-43.userapi.com/impg/5qJlEpLLzDJFUyKhg8LBCkyUVvMSfBPq7aa16Q/QCv68"
+                "A2KGS4.jpg?size=807x605&quality=96&sign=f8274edd44e94d75f942f632eed66e27&c_uniq_ta"
+                "g=p8dyuSxX3usVaGWO3fcCwdvrRjxOhgj6CLcIfyJa3_o&type=none"
+    ))
+    db.session.add(ServiceModel(
+        type="Гостевой домик 1",
+        description="Туалет, умывальник на улице.",
+        img_url="https://sun9-57.userapi.com/impg/4f7rDZxXMezidEWwThwDaRe6Uiz05-1IGbBiZg/"
+                "GlEt_m4Aots.jpg?size=807x605&quality=96&sign=e42c8b775023a9030181b"
+                "0255e62ed40&c_uniq_tag=mm5VF_dqJ4gyEzH-02TUhYTiBUJmy7R0Ha2Z8ul4X5k&type=none"
+    ))
+    db.session.add(ServiceModel(
+        type="Беседка на воде",
+        description="Беседка на воде с мангальной зоной на берегу пруда и вместимостью до 60 человек",
+        img_url="https://sun9-70.userapi.com/impg/C033qMDud4McuSkmdW7HFpiNN5rHYMgGCDKq_"
+                "w/uZn0S0Nhc7U.jpg?size=807x605&quality=96&sign=4b810b72bfd1fa93ef678807e6"
+                "f0f240&c_uniq_tag=6FifmDXXtvd_POxLmAhidPtyE6YdQMoPvPovwJnwM4s&type=none"
+    ))
+    db.session.add(ServiceModel(
+        type="Беседка у пруда",
+        description="Беседка с русской печкой и мангалом вместимостью до 30 человек",
+        img_url="https://sun9-59.userapi.com/impg/trDGP8t_kDLydsDFKeXSU_brmL6pr1kY0eMf0w/Fw"
+                "dDz87Zp-s.jpg?size=807x605&quality=96&sign=91b1f9c8ea299edb900e7d93257bc987&c_uni"
+                "q_tag=sINKGawFmRkyqkmQNgV0fq9wsK55EYT7MxRm4SpR7ZQ&type=none"
+    ))
 
     for rent in strings.RENTS:
         db.session.add(RentModel(name=rent.name, description=rent.description, cost=rent.cost, img_url=rent.img_url))
