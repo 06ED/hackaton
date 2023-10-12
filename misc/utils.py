@@ -1,6 +1,5 @@
 import email.message as message
 import smtplib
-import datetime as dt
 
 from flask import render_template
 from config import settings
@@ -16,26 +15,28 @@ class Mailer:
     def send_success_booking(self, email: str, name, surname, home, start_date, end_date):
         with self._app.app_context():
             msg = message.Message()
+            msg["Subject"] = "Ваша заявка на бронирование зарегестрирована!"
             msg.add_header("Content-Type", "text/html")
             msg.set_payload(render_template(
                 "success_booking.html",
                 name=name,
                 surname=surname,
                 home=home,
-                start_date=start_date.strftime("%s/%s/%s %H:%M"),
-                end_date=end_date.strftime("%s/%s/%s %H:%M"),
+                start_date=start_date.strftime("%m/%d/%Y %H:%M"),
+                end_date=end_date.strftime("%m/%d/%Y %H:%M"),
             ))
             self._smtp_server.sendmail(settings.EMAIL, email, msg.as_string().encode("utf-8"))
 
     def send_success_booking_excursion(self, email: str, name, surname, date, description):
         with self._app.app_context():
             msg = message.Message()
+            msg["Subject"] = "Ваша заявка на экскурсию зарегестрирована!"
             msg.add_header("Content-Type", "text/html")
             msg.set_payload(render_template(
                 "success_booking_excursion.html",
                 name=name,
                 surname=surname,
-                date=date.strftime("%s/%s/%s"),
+                date=date.strftime("%m/%d/%Y"),
                 description=description,
             ))
             self._smtp_server.sendmail(settings.EMAIL, email, msg.as_string().encode("utf-8"))

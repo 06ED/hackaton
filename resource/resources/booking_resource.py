@@ -1,5 +1,5 @@
 import random, string
-from flask import request, jsonify
+from flask import request
 import datetime as dt
 
 from db.models.booking_model import BookingModel

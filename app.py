@@ -22,8 +22,8 @@ CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 
 
 @app.route("/image/<string:file>/")
-def download_media(name):
-    return send_from_directory(app.config["UPLOAD_FOLDER"], name)
+def download_media(file):
+    return send_from_directory(app.config["UPLOAD_FOLDER"], file)
 
 
 def main():

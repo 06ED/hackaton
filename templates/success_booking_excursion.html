@@ -5,71 +5,49 @@
     <title>Поздравляем!</title>
     <style>
         body {
-            height: 100vh;
-            width: 100vw;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Verdana, sans-serif;
-        }
-
-        .black {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.25);
-            display: flex;
-            justify-content: center;
             align-items: center;
-            flex-direction: column;
-            gap: 1.5em;
+            justify-content: center;
+            margin: 0 auto;
+            height: 500px;
+            width: 800px;
+            background: url("https://sun9-9.userapi.com/impg/aU_yI7ESZILpLsurtO-W_Z_PdAK4VoYisoF9GA/4O6De8AV2vs.jpg?size=1280x960&quality=95&sign=7de9a538d021648e7849379c46d7aa06&type=album") no-repeat;
+            padding: 40px;
         }
 
         .info {
-            width: 40%;
-            height: 40%;
-            border-radius: 10px;
+            padding: 20px;
+            margin-top: 150px;
             background: #F9C577;
-            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), 25px 25px 0 #EAA4A4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .title {
-            color: #E27C50;
-            font-family: Inter, sans-serif;
-            font-size: 36px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
+            border-radius: 10px;
         }
 
         .text {
-            color: #E27C50;
-            font-family: Inter, sans-serif;
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
+            color: aliceblue;
+            font-family: Verdana, serif;
+        }
+
+        .title {
+            color: aliceblue;
+            font-family: Verdana, serif;
         }
     </style>
 </head>
 <body>
-<div class="wrapper" style="z-index: 1000000000; position: relative">
-    <div class="black">
-        <div class="info" style="position: absolute">
-            <h2 class="title">Поздравляем, {{ name }} {{ surname }}!</h2>
-            <div class="text">
-                <span>Ваша экскурсия по возрожденной деревне Мувыр успешно забронирована на 12:00 {{ date }}</span>
-            </div>
-        </div>
-    </div>
+<div>
+    <table width="70%" cellspacing="0" cellpadding="0" border="0" class="info" align="center">
+        <tr>
+            <td align="center">
+                <h2 class="title">Поздравляем, {{ name }} {{ surname }}!</h2>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <div class="text">
+                    <span>Ваша экскурсия по возрожденной деревне "Мувыр" успешно забронирована на {{ date }} 12:00</span>
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>
