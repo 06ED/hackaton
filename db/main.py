@@ -1,5 +1,3 @@
-from typing import Final
-
 from db.base import BaseModel
 from db.models import *
 from sqlalchemy import create_engine
@@ -10,7 +8,7 @@ from misc import SingletonMeta
 
 
 class Database(metaclass=SingletonMeta):
-    BASE: Final = declarative_base()
+    BASE = declarative_base()
 
     def __init__(self, name: str):
         self.__engine = create_engine(f"sqlite:///{name}?check_same_thread=False")
